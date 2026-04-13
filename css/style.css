@@ -58,6 +58,10 @@ a {
     color: var(--main-bg-color)
 }
 
+footer {
+    background-color: #F2F2F2;
+}
+
 /****** Hebergements And Populaires ***********/
 .hebergements-and-populaires {
     display: flex;
