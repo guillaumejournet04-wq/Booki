@@ -12,38 +12,6 @@
     --filter-bg-color: #DEEBFF; /* Couleur de fond des boutons filtres */
 }
 
-header {
-    display: flex; /* Aligne le logo et la nav en ligne */
-    justify-content: space-between; /* Logo à gauche, nav à droite */
-    align-items: center; /* Centrage vertical */
-    height: 79px;
-}
-
-#logo {
-    width: 61.09px;
-    height: 19px;
-}
-
-header nav {
-    align-self: flex-start; /* La nav reste en haut du header */
-    margin-right: 50px;
-    padding-top: 15px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 68px; /* Espace entre les liens de navigation */
-}
-
-nav ul li a:hover {
-    color: var(--main-color);
-    border-top: 2px solid var(--main-color); /* Bordure bleue qui apparaît au survol */
-    padding-top: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout */
-}
-
-
 .fa-solid {
     color: var(--main-color); /* Toutes les icônes solid en bleu */
 }
@@ -91,6 +59,38 @@ a {
 
 .neutral-star {
     color: var(--main-bg-color) /* Étoile grise pour les notes incomplètes */
+}
+
+/****** Header ***********/
+header {
+    display: flex; /* Aligne le logo et la nav en ligne */
+    justify-content: space-between; /* Logo à gauche, nav à droite */
+    align-items: center; /* Centrage vertical */
+    height: 79px;
+}
+
+#logo {
+    width: 61.09px;
+    height: 19px;
+}
+
+header nav {
+    align-self: flex-start; /* La nav reste en haut du header */
+    margin-right: 50px;
+    padding-top: 15px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 68px; /* Espace entre les liens de navigation */
+}
+
+nav ul li a:hover {
+    color: var(--main-color);
+    border-top: 2px solid var(--main-color); /* Bordure bleue qui apparaît au survol */
+    padding-top: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout */
 }
 
 /****** Filtres ***********/
