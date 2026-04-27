@@ -451,5 +451,44 @@ footer section {
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
-    /* ... */
+    .main-container {
+        padding: 0 20px; /* Réduit les marges internes sur mobile */
+    }   
+    header {
+        display: flex;
+        flex-direction: column; /* Logo et nav empilés verticalement */
+        align-items: center; /* Centre le contenu horizontalement */
+        margin : 30px 0; /* Espace au-dessus et en dessous du header */
+        padding: 0; /* Supprime les paddings pour que le header soit plus compact sur mobile */
+        height: auto; /* Permet au header de s'adapter à la hauteur du contenu sur mobile */
+    }
+    header nav {
+        margin-left: -20px;
+        margin-right: -20px;
+        width: calc(100% + 40px);
+    }
+    nav ul {
+        flex-direction: row; /* Les liens de navigation restent en ligne sur mobile */
+        width: 100%; /* La liste de navigation prend toute la largeur sur mobile */
+        gap: 0; /* Supprime l'espace entre les liens de navigation sur mobile */
+    }
+    nav ul li {
+        flex: 1; /* Chaque lien de navigation prend la même largeur sur mobile */
+        text-align: center; /* Centre le texte des liens de navigation sur mobile */
+    }
+    nav ul li a {
+        display: block; /* Affiche les liens de navigation en bloc pour qu'ils prennent toute la largeur sur mobile */
+        border-bottom: 2px solid var(--main-bg-color); /* Bordure grise par défaut pour les liens de navigation sur mobile */
+        padding-bottom: 10px; /* Espace en dessous des liens de navigation pour compenser la bordure */
+    }
+    nav ul li a:hover, nav ul li a.active {
+        border-bottom: 2px solid var(--main-color); /* Bordure bleue qui apparaît en bas au survol sur mobile */
+        margin: 0;
+        padding: 0;   
+    }
+    nav ul li a:hover {
+        border-top: none; /* Supprime la bordure bleue qui apparaît au survol sur desktop */
+        padding-bottom: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout sur mobile */
+        padding-top: 0; /* Supprime le padding top ajouté pour le hover sur desktop */
+    }
 }
