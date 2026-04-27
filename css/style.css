@@ -101,7 +101,7 @@ a {
     border-radius: 15px;  
     width: 377px;
     height: 49px;
-    margin: 24px 0; /* Espace au-dessus et en dessous de la search-form */
+    margin-top: 24px;  /* Espace au-dessus  de la search-form */
     overflow: hidden; /* Cache les débordements pour que les arrondis soient visibles */   
 
 }
@@ -154,8 +154,49 @@ a {
 
 .info {
     display: flex; 
-    flex-direction: row; 
+    align-items: center;
     gap: 10px; /* Espace entre les éléments de la section info */
+    margin-top: 24px; /* Espace au-dessus de la section info */
+}
+.info i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%; /* Icône dans un cercle */
+    border: 1px solid var(--main-bg-color); /* Bordure bleue */
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    vertical-align: middle; /* Aligne l'icône avec le texte */
+}
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre les boutons de filtre */
+    margin-top: 24px; /* Espace au-dessus de la section filtres */
+
+}
+
+.filters-buttons {
+    display: flex;
+    gap: 15px; /* Espace entre les boutons de filtre */   
+}
+
+.filters-buttons button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid var(--main-bg-color); /* Bordure grise */
+    background-color: white; /* Fond blanc pour les boutons de filtre */
+    border-radius: 25px;
+    padding: 10px 20px; /* Espace interne des boutons de filtre */
+    font-size: 17px;
+    font-weight: 700;
+    color: black; 
+}
+
+.filters-buttons > button:hover {
+    background-color: var(--filter-bg-color); /* Fond bleu clair au survol */
 }
 
 /****** Hebergements And Populaires ***********/
