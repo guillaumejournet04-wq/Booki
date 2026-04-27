@@ -92,10 +92,55 @@ a {
 .neutral-star {
     color: var(--main-bg-color) /* Étoile grise pour les notes incomplètes */
 }
+
 /****** Filtres ***********/
-.search {
-    
+.search-form {
+    display : flex;
+    align-items: center;  
+    border: 2px solid var(--main-bg-color); /* Bordure grise */
+    border-radius: 15px;  
+    width: 377px;
+    height: 49px;
+    margin: 24px 0; /* Espace au-dessus et en dessous de la search-form */
+    overflow: hidden; /* Cache les débordements pour que les arrondis soient visibles */   
+
 }
+
+.search-form > button {
+    background-color: var(--main-color); /* Fond bleu  pour le boutton recherche */
+    color : white;
+    border : none;
+    height: 100%;
+    width: 132px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.search-form > input {
+    flex : 1; /* L'input prend tout l'espace disponible à gauche du bouton */
+    border: none; /* Supprime la bordure de l'input */
+    padding: 0 15px; /* Espace interne à gauche et à droite de l'input */
+    height: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+.search-form > input::placeholder {
+    color : black
+}
+
+.search-form > i {
+    color: black; /* Couleur noire */
+    border-top-left-radius: 15px; /* Arrondi en haut à gauche pour suivre le border-radius de la search-form */
+    border-bottom-left-radius: 15px; /* Arrondi en bas à gauche */  
+    background-color: var(--main-bg-color); /* Fond gris pour les icônes */
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
 .search > p {
     margin-top: 8px; /* Alternatif : margin-bottom sur h1, ou gap: 8px sur .search en flex column */
     font-size: 16px;
@@ -124,7 +169,6 @@ a {
     background-color: var(--main-bg-color);
     border-radius: 20px;
     padding: 30px; /* Espace interne des deux sections */
-    box-sizing: border-box;
 }
 
 /****** Hebergements ***********/
