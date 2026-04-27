@@ -150,7 +150,18 @@ nav ul li a:hover {
     width: 50px;
     height: 110%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px; /* Espace entre les liens */
+}
+
+footer section {
+    flex: 1; /* Chaque colonne du footer prend la même largeur */
+}
+
+
+
+footer section {
+    flex: 1;
     align-items: center;
 }
 
