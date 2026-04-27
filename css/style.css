@@ -94,10 +94,24 @@ a {
 }
 
 /****** Filtres ***********/
+.search {
+    margin-top: 30px
+}
+.search > p {
+    margin-top: 8px; /* Alternatif : margin-bottom sur h1, ou gap: 8px sur .search en flex column */
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.search H1 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
 .search-form {
     display : flex;
     align-items: center;  
-    border: 2px solid var(--main-bg-color); /* Bordure grise */
+    border: 1px solid var(--main-bg-color); /* Bordure grise */
     border-radius: 15px;  
     width: 377px;
     height: 49px;
@@ -119,7 +133,6 @@ a {
 .search-form > input {
     flex : 1; /* L'input prend tout l'espace disponible à gauche du bouton */
     border: none; /* Supprime la bordure de l'input */
-    padding: 0 15px; /* Espace interne à gauche et à droite de l'input */
     height: 100%;
     text-align: center;
     font-size: 16px;
@@ -135,21 +148,10 @@ a {
     border-bottom-left-radius: 15px; /* Arrondi en bas à gauche */  
     background-color: var(--main-bg-color); /* Fond gris pour les icônes */
     width: 50px;
-    height: 100%;
+    height: 110%;
     display: flex;
     align-items: center;
-    padding-left: 15px;
-}
-
-.search > p {
-    margin-top: 8px; /* Alternatif : margin-bottom sur h1, ou gap: 8px sur .search en flex column */
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.search H1 {
-    font-size: 22px;
-    font-weight: 700;
+    justify-content: center;    
 }
 
 .info {
