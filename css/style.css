@@ -42,7 +42,7 @@ a {
     background-color: white;
     border-radius: 20px;
     padding: 5px; /* Espace entre le bord de la carte et son contenu */
-    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1)); /* Ombre portée légère */
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1); /* Ombre portée légère */
 }
 
 .card img {
@@ -128,6 +128,7 @@ nav ul li a:hover {
     width: 132px;
     font-size: 18px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .search-form > input {
@@ -199,6 +200,7 @@ nav ul li a:hover {
 
 .filters-buttons > button:hover {
     background-color: var(--filter-bg-color); /* Fond bleu clair au survol */
+    cursor: pointer; /* Curseur en forme de main au survol */
 }
 
 /****** Hebergements And Populaires ***********/
@@ -218,15 +220,12 @@ nav ul li a:hover {
 .hebergements {
     width: 65%; /* Occupe 65% de la largeur disponible */
 }
-
 .hebergements-cards {
     display: flex;
     flex-wrap: wrap; /* Les cartes passent à la ligne si elles dépassent */
-    align-items: flex-start; /* Les cartes s'alignent en haut */
     gap: 15px; /* Espace entre les cartes */
     margin-top: 33px;
 }
-
 .hebergements-cards a {
     flex: 0 0 calc(33.33% - 10px); /* 3 cartes par ligne (2 gaps de 15px / 3 = 10px par carte) */
     display: block;
@@ -242,7 +241,6 @@ nav ul li a:hover {
     border-top-left-radius: 20px; /* Arrondi en haut à gauche pour suivre le border-radius de la carte */
     border-top-right-radius: 20px; /* Arrondi en haut à droite */
 }
-
 .hebergements-cards .card-content {
     display: flex;
     flex-direction: column; /* Titre, prix et étoiles empilés verticalement */
@@ -251,20 +249,16 @@ nav ul li a:hover {
     margin-left: 15px;
     margin-right: 15px;
 }
-
 .hebergements-cards .card-title {
     margin-top: 10px;
     margin-bottom: 4px;
 }
-
 .hebergements-cards .card-subtitle {
     margin-top: 10px;
 }
-
 .hebergements-cards .card-rating {
     margin-bottom: 5px;
 }
-
 .afficher-plus {
     margin-top: 20px;
 }
@@ -320,14 +314,15 @@ nav ul li a:hover {
     margin-bottom: 30px; /* Espace avant le footer */
     padding: 30px; /* Aligne le contenu avec les sections hébergements/populaires */
 }
-
 .activites .section-title {
     margin-left: 10px; /* Aligne le titre avec les cartes hébergements */
     margin-bottom: 33px; /* Espace entre le titre et les cartes */
 }
-
 .activites-cards .card-title {
     margin: 19px 20px; /* Espace autour du titre dans la carte */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .activites-cards {
@@ -347,11 +342,13 @@ nav ul li a:hover {
 .activites-cards a {
     flex: 0 0 calc(25% - 11.25px); /* 4 cartes par ligne (3 gaps de 15px / 4 = 11.25px par carte) */
     display: block;
+    min-width: 0;;
 }
 
 .activites-cards .card {
     padding: 0; /* Supprime le padding général pour que l'image remplisse toute la carte */
     height: 100%; /* La carte remplit toute la hauteur du lien parent */
+    overflow: hidden;
 }
 
 /****** Footer ***********/
@@ -490,5 +487,11 @@ footer section {
         border-top: none; /* Supprime la bordure bleue qui apparaît au survol sur desktop */
         padding-bottom: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout sur mobile */
         padding-top: 0; /* Supprime le padding top ajouté pour le hover sur desktop */
+    }
+      footer {
+        flex-direction: column;
+        gap: 50px; /* Espace plus grand entre les sections du footer sur mobile */ 
+        margin-left: -20px;
+        margin-right: -20px; 
     }
 }
