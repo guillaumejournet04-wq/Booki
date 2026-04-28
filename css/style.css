@@ -491,4 +491,10 @@ footer section {
         padding-bottom: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout sur mobile */
         padding-top: 0; /* Supprime le padding top ajouté pour le hover sur desktop */
     }
+      footer {
+        flex-direction: column;
+        gap: 50px; /* Espace plus grand entre les sections du footer sur mobile */ 
+        margin-left: -20px;
+        margin-right: -20px; 
+    }
 }
