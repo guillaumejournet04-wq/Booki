@@ -426,6 +426,9 @@ footer section {
     .activites-cards {
         height : 270px;
     }
+    .activites-cards a {
+        min-width: auto; /* Permet aux cartes de s'adapter à la largeur disponible sur tablette */
+    }
 
     .activites-cards img {
         height: 200px;
@@ -433,6 +436,7 @@ footer section {
     .activites-cards .card {
         display: flex;
         flex-direction: column;
+        overflow: visible; /* Permet au contenu de dépasser de la carte si nécessaire */
     }
 
     .activites-cards .card-content {
@@ -443,6 +447,9 @@ footer section {
 
     .activites-cards .card-title {
         margin: 0 20px;
+        white-space: normal; /* Permet au titre de s'étendre sur plusieurs lignes si nécessaire */
+         overflow: visible; /* Affiche tout le texte du titre même s'il dépasse de la carte */
+         text-overflow: clip; /* Affiche tout le texte sans ajouter de points de suspension */
     }
 }
 
