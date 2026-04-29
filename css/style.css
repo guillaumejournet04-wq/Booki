@@ -117,7 +117,6 @@ nav ul li a:hover {
     height: 49px;
     margin-top: 24px;  /* Espace au-dessus  de la search-form */
     overflow: hidden; /* Cache les débordements pour que les arrondis soient visibles */   
-
 }
 
 .search-form > button {
@@ -129,6 +128,9 @@ nav ul li a:hover {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+}
+.search-form > button > i {
+    display: none; /* Cache l'icône de la loupe dans le bouton de recherche */
 }
 
 .search-form > input {
@@ -149,7 +151,7 @@ nav ul li a:hover {
     border-bottom-left-radius: 15px; /* Arrondi en bas à gauche */  
     background-color: var(--main-bg-color); /* Fond gris pour les icônes */
     width: 50px;
-    height: 110%;
+    height: 105%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -374,7 +376,7 @@ footer ul {
 }
 
 footer section {
-    flex: 1; /* Chaque colonne du footer prend la même largeur */
+    flex: 0; /* Chaque colonne du footer prend la même largeur */
 }
 
 
@@ -391,6 +393,9 @@ footer section {
 
     .filters h2 {
         width: 100%;
+    }
+    .filters-buttons button {
+        font-size : 16px;
     }
     .hebergements-and-populaires {
         flex-direction: column; /* Hébergements et populaires empilés verticalement */
@@ -495,7 +500,33 @@ footer section {
         padding-bottom: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout sur mobile */
         padding-top: 0; /* Supprime le padding top ajouté pour le hover sur desktop */
     }
-      footer {
+    .search-form {
+        width: 100%; /* La search-form prend toute la largeur disponible sur mobile */
+        overflow: visible; /* Permet à la search-form de s'adapter à la hauteur du contenu sur mobile */
+    }
+    .search-form > button > span {
+        display: none; /* Cache le texte "Rechercher" dans le bouton de recherche sur mobile */
+    }
+    .search-form > button > i {
+        display: inline-block; /* Affiche l'icône de la loupe dans le bouton de recherche sur mobile */
+        color: white; /* Couleur blanche pour l'icône de la loupe sur mobile */
+    }
+    .search-form > button {
+        border-radius: 15px; /* Arrondi du bouton de recherche sur mobile */
+        width: 49px; /* Réduit la largeur du bouton de recherche sur mobile pour n'afficher que l'icône de la loupe */;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Ombre portée légère */
+    }
+    .filters-buttons {
+        flex-wrap: wrap; 
+    }
+   .filters-buttons button {
+        width: calc(50% - 7.5px);
+        font-size: 14px; /* Réduit la taille de la police pour les boutons de filtre sur mobile */
+    }
+    .info i {
+        flex-shrink: 0; /* Empêche les icônes de rétrécir sur mobile */
+    }
+    footer {
         flex-direction: column;
         gap: 50px; /* Espace plus grand entre les sections du footer sur mobile */ 
         margin-left: -20px;
