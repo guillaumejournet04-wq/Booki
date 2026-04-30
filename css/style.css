@@ -5,62 +5,50 @@
     padding: 0; /* Supprime les paddings par défaut du navigateur */
     box-sizing: border-box; /* Le padding et la bordure sont inclus dans la largeur/hauteur */
 }
-
 :root {
     --main-color: #0065FC; /* Couleur principale bleue */
     --main-bg-color: #F2F2F2; /* Couleur de fond grise */
     --filter-bg-color: #DEEBFF; /* Couleur de fond des boutons filtres */
 }
-
 .fa-solid {
     color: var(--main-color); /* Toutes les icônes solid en bleu */
 }
-
 body {
     display: flex;
     justify-content: center; /* Centre le contenu horizontalement */
 }
-
 .main-container {
     width: 100%;
     max-width: 1440px; /* Largeur maximale de la page */
     padding: 0 50px; /* Marges internes gauche/droite */
     box-sizing: border-box;
 }
-
 a {
     color: inherit; /* Les liens héritent de la couleur du texte parent */
     text-decoration: none; /* Supprime le soulignement */
 }
-
 .section-title {
     margin: 0;
     font-size: 22px;
 }
-
 .card {
     background-color: white;
     border-radius: 20px;
     padding: 5px; /* Espace entre le bord de la carte et son contenu */
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1); /* Ombre portée légère */
 }
-
 .card img {
     object-fit: cover; /* L'image remplit son conteneur sans se déformer */
 }
-
 .card-title {
     font-size: 16px;
 }
-
 .euro {
     font-weight: 700; /* Le symbole € en gras */
 }
-
 .neutral-star {
     color: var(--main-bg-color) /* Étoile grise pour les notes incomplètes */
 }
-
 /****** Header ***********/
 header {
     display: flex; /* Aligne le logo et la nav en ligne */
@@ -68,31 +56,26 @@ header {
     align-items: center; /* Centrage vertical */
     height: 79px;
 }
-
 #logo {
     width: 61.09px;
     height: 19px;
 }
-
 header nav {
     align-self: flex-start; /* La nav reste en haut du header */
     margin-right: 50px;
     padding-top: 15px;
 }
-
 nav ul {
     list-style: none;
     display: flex;
     flex-direction: row;
     gap: 68px; /* Espace entre les liens de navigation */
 }
-
 nav ul li a:hover {
     color: var(--main-color);
     border-top: 2px solid var(--main-color); /* Bordure bleue qui apparaît au survol */
     padding-top: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout */
 }
-
 /****** Filtres ***********/
 .search {
     margin-top: 30px
@@ -118,7 +101,6 @@ nav ul li a:hover {
     margin-top: 24px;  /* Espace au-dessus  de la search-form */
     overflow: hidden; /* Cache les débordements pour que les arrondis soient visibles */   
 }
-
 .search-form > button {
     background-color: var(--main-color); /* Fond bleu  pour le boutton recherche */
     color : white;
@@ -132,7 +114,6 @@ nav ul li a:hover {
 .search-form > button > i {
     display: none; /* Cache l'icône de la loupe dans le bouton de recherche */
 }
-
 .search-form > input {
     flex : 1; /* L'input prend tout l'espace disponible à gauche du bouton */
     border: none; /* Supprime la bordure de l'input */
@@ -144,7 +125,6 @@ nav ul li a:hover {
 .search-form > input::placeholder {
     color : black
 }
-
 .search-form > i {
     color: black; /* Couleur noire */
     border-top-left-radius: 15px; /* Arrondi en haut à gauche pour suivre le border-radius de la search-form */
@@ -156,7 +136,6 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
 }
-
 .info {
     display: flex; 
     align-items: center;
@@ -181,12 +160,10 @@ nav ul li a:hover {
     margin-top: 24px; /* Espace au-dessus de la section filtres */
 
 }
-
 .filters-buttons {
     display: flex;
     gap: 15px; /* Espace entre les boutons de filtre */   
 }
-
 .filters-buttons button {
     display: flex;
     align-items: center;
@@ -199,25 +176,21 @@ nav ul li a:hover {
     font-weight: 700;
     color: black; 
 }
-
 .filters-buttons > button:hover {
     background-color: var(--filter-bg-color); /* Fond bleu clair au survol */
     cursor: pointer; /* Curseur en forme de main au survol */
 }
-
 /****** Hebergements And Populaires ***********/
 .hebergements-and-populaires {
     display: flex; /* Place hébergements et populaires côte à côte */
     justify-content: space-between;
     margin: 30px 0; /* Espace au-dessus et en dessous de la section */
 }
-
 .hebergements-and-populaires section {
     background-color: var(--main-bg-color);
     border-radius: 20px;
     padding: 30px; /* Espace interne des deux sections */
 }
-
 /****** Hebergements ***********/
 .hebergements {
     width: 65%; /* Occupe 65% de la largeur disponible */
@@ -231,11 +204,9 @@ nav ul li a:hover {
 .hebergements-cards a {
     flex: 0 0 calc(33.33% - 10px); /* 3 cartes par ligne (2 gaps de 15px / 3 = 10px par carte) */
 }
-
 .hebergements-cards .card {
     height: 100%; /* La carte remplit toute la hauteur du lien parent */
 }
-
 .hebergements-cards img {
     width: 100%;
     height: 124px;
@@ -263,18 +234,15 @@ nav ul li a:hover {
 .afficher-plus {
     margin-top: 20px;
 }
-
 /****** Populaires ***********/
 .populaires {
     width: 32%; /* Occupe 32% de la largeur disponible */
 }
-
 .populaires-title {
     display: flex;
     justify-content: space-between; /* Titre et icône graphique aux extrémités */
     align-items: center;
 }
-
 .populaires-cards .card {
     display: flex; /* Image à gauche, contenu à droite */
     margin-top: 33px;
@@ -285,7 +253,6 @@ nav ul li a:hover {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px; /* Arrondi à gauche car l'image est sur le côté gauche */
 }
-
 .populaires-cards .card-content {
     width: 67%; /* Le contenu occupe les deux tiers restants */
     padding-left: 15px;
@@ -294,20 +261,16 @@ nav ul li a:hover {
     justify-content: space-between;
     box-sizing: border-box;
 }
-
 .populaires-cards .card-title {
     margin-top: 10px;
     margin-bottom: 4px;
 }
-
 .populaires-cards .card-subtitle {
     margin: 0;
 }
-
 .populaires-cards .card-rating {
     margin-bottom: 5px;
 }
-
 /****** Activites ***********/
 .activites {
     width: 100%;
@@ -324,33 +287,28 @@ nav ul li a:hover {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .activites-cards {
     display: flex;
     flex-direction: row; /* Les 4 cartes en ligne */
     gap: 15px;
     height: 439px; /* Hauteur fixe de la section cartes */
 }
-
 .activites-cards img {
     width: 100%;
     height: 380px; /* L'image occupe la majorité de la hauteur de la carte */
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
-
 .activites-cards a {
     flex: 0 0 calc(25% - 11.25px); /* 4 cartes par ligne (3 gaps de 15px / 4 = 11.25px par carte) */
     display: block;
     min-width: 0;;
 }
-
 .activites-cards .card {
     padding: 0; /* Supprime le padding général pour que l'image remplisse toute la carte */
     height: 100%; /* La carte remplit toute la hauteur du lien parent */
     overflow: hidden;
 }
-
 /****** Footer ***********/
 footer {
     background-color: var(--main-bg-color);
@@ -358,13 +316,11 @@ footer {
     display: flex; /* Les 3 sections du footer côte à côte */
     gap: 10px;
 }
-
 footer h2 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 15px;
 }
-
 footer ul {
     list-style: none;
     padding: 0;
@@ -372,67 +328,56 @@ footer ul {
     flex-direction: column;
     gap: 15px; /* Espace entre les liens */
 }
-
 footer section {
     flex: 1; /* Chaque colonne du footer prend la même largeur */
 }
-
-
-
-
 /* Le code ci-dessous correspond à la version responsive uniquement */
 
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
+    /***** Filtres *****/
     .filters {
         flex-wrap: wrap;
     }
-
     .filters h2 {
         width: 100%;
     }
     .filters-buttons button {
         font-size : 16px;
     }
+    /***** Hebergements And Populaires *****/
     .hebergements-and-populaires {
         flex-direction: column; /* Hébergements et populaires empilés verticalement */
     }
-
     .hebergements {
         width: 100%;
     }
-
     .populaires {
         width: 100%;
         margin-top: 50px;
     }
-
     .populaires-cards {
         display: flex;
         flex-direction: row; /* Les cartes populaires repassent en ligne sur tablette */
         justify-content: space-between;
     }
-
     .populaires-cards a {
         width: 30%; /* 3 cartes par ligne sur tablette */
     }
-
     .populaires-cards .card-title {
         font-size: 14px; /* Titre réduit pour s'adapter à la taille des cartes */
     }
-
     .populaires-cards .card-subtitle {
         font-size: 13px;
     }
-
+    /***** Activites *****/
     .activites-cards {
         height : 270px;
     }
     .activites-cards a {
         min-width: auto; /* Permet aux cartes de s'adapter à la largeur disponible sur tablette */
     }
-
     .activites-cards img {
         height: 200px;
     }
@@ -441,13 +386,11 @@ footer section {
         flex-direction: column;
         overflow: visible; /* Permet au contenu de dépasser de la carte si nécessaire */
     }
-
     .activites-cards .card-content {
         flex: 1;
         display: flex;
         align-items: center;
     }
-
     .activites-cards .card-title {
         margin: 0 20px;
         white-space: normal; /* Permet au titre de s'étendre sur plusieurs lignes si nécessaire */
@@ -460,7 +403,8 @@ footer section {
 @media (max-width: 767.98px) {
     .main-container {
         padding: 0 30px; /* Réduit les marges internes sur mobile */
-    }   
+    }  
+    /***** Header *****/ 
     header {
         display: flex;
         flex-direction: column; /* Logo et nav empilés verticalement */
@@ -498,6 +442,7 @@ footer section {
         padding-bottom: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout sur mobile */
         padding-top: 0; /* Supprime le padding top ajouté pour le hover sur desktop */
     }
+    /***** Filtres *****/
     .search-form {
         width: 100%; /* La search-form prend toute la largeur disponible sur mobile */
         overflow: visible; /* Permet à la search-form de s'adapter à la hauteur du contenu sur mobile */
@@ -524,6 +469,7 @@ footer section {
     .info i {
         flex-shrink: 0; /* Empêche les icônes de rétrécir sur mobile */
     }
+    /***** Hebergements And Populaires *****/
     .hebergements-and-populaires section {
         border-radius: 0; /* Supprime les arrondis pour que les sections hébergements et populaires prennent toute la largeur sur mobile */;
         margin-left: -30px;
@@ -562,6 +508,7 @@ footer section {
     .hebergements-cards .img {
         height: 124px; /* Réduit la hauteur des images dans les cartes hébergements sur mobile */
     }
+    /***** Activites *****/
     .activites {
         padding-left: 0;
         padding-right: 0; /* Supprime les paddings pour que la section activités prenne toute la largeur sur mobile */
@@ -581,6 +528,7 @@ footer section {
     .activites-cards .card-title {
         font-size: 16px;
     }
+    /***** Footer *****/
     footer {
         flex-direction: column;
         gap: 50px; /* Espace plus grand entre les sections du footer sur mobile */ 
