@@ -117,7 +117,6 @@ nav ul li a:hover {
     height: 49px;
     margin-top: 24px;  /* Espace au-dessus  de la search-form */
     overflow: hidden; /* Cache les débordements pour que les arrondis soient visibles */   
-
 }
 
 .search-form > button {
@@ -129,6 +128,9 @@ nav ul li a:hover {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+}
+.search-form > button > i {
+    display: none; /* Cache l'icône de la loupe dans le bouton de recherche */
 }
 
 .search-form > input {
@@ -149,7 +151,7 @@ nav ul li a:hover {
     border-bottom-left-radius: 15px; /* Arrondi en bas à gauche */  
     background-color: var(--main-bg-color); /* Fond gris pour les icônes */
     width: 50px;
-    height: 110%;
+    height: 105%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -228,7 +230,6 @@ nav ul li a:hover {
 }
 .hebergements-cards a {
     flex: 0 0 calc(33.33% - 10px); /* 3 cartes par ligne (2 gaps de 15px / 3 = 10px par carte) */
-    display: block;
 }
 
 .hebergements-cards .card {
@@ -278,7 +279,6 @@ nav ul li a:hover {
     display: flex; /* Image à gauche, contenu à droite */
     margin-top: 33px;
 }
-
 .populaires-cards img {
     width: 33%; /* L'image occupe un tiers de la carte */
     height: 136px;
@@ -392,6 +392,9 @@ footer section {
     .filters h2 {
         width: 100%;
     }
+    .filters-buttons button {
+        font-size : 16px;
+    }
     .hebergements-and-populaires {
         flex-direction: column; /* Hébergements et populaires empilés verticalement */
     }
@@ -448,15 +451,15 @@ footer section {
     .activites-cards .card-title {
         margin: 0 20px;
         white-space: normal; /* Permet au titre de s'étendre sur plusieurs lignes si nécessaire */
-         overflow: visible; /* Affiche tout le texte du titre même s'il dépasse de la carte */
-         text-overflow: clip; /* Affiche tout le texte sans ajouter de points de suspension */
+        overflow: visible; /* Affiche tout le texte du titre même s'il dépasse de la carte */
+        text-overflow: clip; /* Affiche tout le texte sans ajouter de points de suspension */
     }
 }
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
     .main-container {
-        padding: 0 20px; /* Réduit les marges internes sur mobile */
+        padding: 0 30px; /* Réduit les marges internes sur mobile */
     }   
     header {
         display: flex;
@@ -467,9 +470,9 @@ footer section {
         height: auto; /* Permet au header de s'adapter à la hauteur du contenu sur mobile */
     }
     header nav {
-        margin-left: -20px;
-        margin-right: -20px;
-        width: calc(100% + 40px);
+        margin-left: -30px;
+        margin-right: -30px;
+        width: calc(100% + 60px);
     }
     nav ul {
         flex-direction: row; /* Les liens de navigation restent en ligne sur mobile */
@@ -495,10 +498,93 @@ footer section {
         padding-bottom: 10px; /* Compense la hauteur de la bordure pour éviter un saut de layout sur mobile */
         padding-top: 0; /* Supprime le padding top ajouté pour le hover sur desktop */
     }
-      footer {
+    .search-form {
+        width: 100%; /* La search-form prend toute la largeur disponible sur mobile */
+        overflow: visible; /* Permet à la search-form de s'adapter à la hauteur du contenu sur mobile */
+    }
+    .search-form > button > span {
+        display: none; /* Cache le texte "Rechercher" dans le bouton de recherche sur mobile */
+    }
+    .search-form > button > i {
+        display: inline-block; /* Affiche l'icône de la loupe dans le bouton de recherche sur mobile */
+        color: white; /* Couleur blanche pour l'icône de la loupe sur mobile */
+    }
+    .search-form > button {
+        border-radius: 15px; /* Arrondi du bouton de recherche sur mobile */
+        width: 49px; /* Réduit la largeur du bouton de recherche sur mobile pour n'afficher que l'icône de la loupe */;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Ombre portée légère */
+    }
+    .filters-buttons {
+        flex-wrap: wrap; 
+    }
+   .filters-buttons button {
+        width: calc(50% - 7.5px);
+        font-size: 14px; /* Réduit la taille de la police pour les boutons de filtre sur mobile */
+    }
+    .info i {
+        flex-shrink: 0; /* Empêche les icônes de rétrécir sur mobile */
+    }
+    .hebergements-and-populaires section {
+        border-radius: 0; /* Supprime les arrondis pour que les sections hébergements et populaires prennent toute la largeur sur mobile */;
+        margin-left: -30px;
+        margin-right: -30px;
+        padding: 30px 20px;
+    }
+    .hebergements-and-populaires {
+        flex-direction : column-reverse; /* Populaires au-dessus des hébergements sur mobile */
+        padding: 0;
+        margin-top : 0;
+    }
+    .populaires {
+        width: calc(100% + 60px);
+        margin-top : 35px;
+        }
+    .populaires-cards {
+        flex-direction: column; /* Les cartes populaires empilées verticalement sur mobile */
+    }
+    .populaires-cards a {
+        width: 100%; /* Chaque carte populaire prend toute la largeur sur mobile */
+    }
+    .hebergements {
+        width: calc(100% + 60px);
+    }
+    .hebergements-and-populaires .hebergements {
+        background-color: white; /* Fond blanc pour la section hébergements sur mobile */    
+    }
+    .hebergements-cards {
+        flex-direction: column; /* Les cartes hébergements empilées verticalement sur mobile */
+        padding : 0;
+        gap: 15px;
+    }
+    .hebergements-cards .card {
+        height : 208px; 
+    }
+    .hebergements-cards .img {
+        height: 124px; /* Réduit la hauteur des images dans les cartes hébergements sur mobile */
+    }
+    .activites {
+        padding-left: 0;
+        padding-right: 0; /* Supprime les paddings pour que la section activités prenne toute la largeur sur mobile */
+    }
+    .activites-cards {
+        flex-direction: column;
+        height: auto; /* Permet à la section activités de s'adapter à la hauteur du contenu sur mobile */
+        padding : 0 ;   
+    }
+    .activites-cards .card-content {
+        display: block; /* Affiche le contenu de la carte en bloc pour qu'il prenne toute la largeur sur mobile */
+        padding: 20px 20px 20px 0px; /* Ajoute du padding autour du contenu de la carte sur mobile */
+    }
+    .activites-cards img {
+        height : 141px; /* Réduit la hauteur des images dans les cartes activités sur mobile */
+    }
+    .activites-cards .card-title {
+        font-size: 16px;
+    }
+    footer {
         flex-direction: column;
         gap: 50px; /* Espace plus grand entre les sections du footer sur mobile */ 
-        margin-left: -20px;
-        margin-right: -20px; 
+        margin-left: -30px;
+        margin-right: -30px; 
     }
 }
