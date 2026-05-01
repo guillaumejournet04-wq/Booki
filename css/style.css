@@ -20,6 +20,7 @@ body {
 .main-container {
     width: 100%;
     max-width: 1440px; /* Largeur maximale de la page */
+    min-width : 320px; /* Largeur minimale pour les petits écrans */
     padding: 0 50px; /* Marges internes gauche/droite */
     box-sizing: border-box;
 }
