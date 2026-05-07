@@ -1,51 +1,53 @@
 /****** General ***********/
 * {
     font-family: 'Raleway', sans-serif;
-    /* Police appliquée à tous les éléments */
+    /* Raleway en priorité, sans-serif en police de secours si non disponible */
     margin: 0;
     /* Supprime les marges par défaut du navigateur */
     padding: 0;
     /* Supprime les paddings par défaut du navigateur */
     box-sizing: border-box;
-    /* Le padding et la bordure sont inclus dans la largeur/hauteur */
+    /* padding et border inclus dans width/height : évite les débordements involontaires */
 }
 
 :root {
     --main-color: #0065FC;
-    /* Couleur principale bleue */
+    /* Couleur principale bleue : boutons, icônes et accents */
     --main-bg-color: #F2F2F2;
-    /* Couleur de fond grise */
+    /* Couleur de fond grise : sections, bordures et étoiles neutres */
     --filter-bg-color: #DEEBFF;
-    /* Couleur de fond des boutons filtres */
+    /* Couleur de fond bleu pâle : boutons filtres au survol */
 }
 
 .fa-solid {
     color: var(--main-color);
-    /* Toutes les icônes solid en bleu */
+    /* Applique la couleur principale bleue à toutes les icônes Font Awesome solid */
 }
 
 body {
     display: flex;
+    /* Active flexbox pour pouvoir centrer .main-container */
     justify-content: center;
-    /* Centre le contenu horizontalement */
+    /* Centre .main-container horizontalement dans la fenêtre */
 }
 
 .main-container {
     width: 100%;
     max-width: 1440px;
-    /* Largeur maximale de la page */
+    /* Empêche le contenu de s'étirer au-delà de 1440px sur les grands écrans */
     min-width: 320px;
-    /* Largeur minimale pour les petits écrans */
+    /* Évite les débordements sur les écrans de moins de 320px de large */
     padding: 0 50px;
-    /* Marges internes gauche/droite */
+    /* 50px d'espace interne gauche et droite pour éloigner le contenu des bords */
     box-sizing: border-box;
+    /* Les 50px de padding gauche/droite sont comptés dans le calcul de la width */
 }
 
 a {
     color: inherit;
-    /* Les liens héritent de la couleur du texte parent */
+    /* Hérite la couleur du texte parent : les liens ne s'affichent pas en bleu par défaut */
     text-decoration: none;
-    /* Supprime le soulignement */
+    /* Supprime le soulignement natif des liens */
 }
 
 .section-title {
@@ -57,14 +59,14 @@ a {
     background-color: white;
     border-radius: 20px;
     padding: 5px;
-    /* Espace entre le bord de la carte et son contenu */
+    /* 5px d'espace interne entre le bord de la carte et son contenu */
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-    /* Ombre portée légère */
+    /* 3px vers le bas, 15px de flou, noir à 10% d'opacité : ombre subtile */
 }
 
 .card img {
     object-fit: cover;
-    /* L'image remplit son conteneur sans se déformer */
+    /* L'image remplit son conteneur en rognant les bords si nécessaire, sans distorsion */
 }
 
 .card-title {
@@ -73,22 +75,22 @@ a {
 
 .euro {
     font-weight: 700;
-    /* Le symbole € en gras */
+    /* 700 = gras (bold) : met le montant en évidence */
 }
 
 .neutral-star {
     color: var(--main-bg-color)
-        /* Étoile grise pour les notes incomplètes */
+    /* Utilise la couleur grise pour les étoiles non remplies */
 }
 
 /****** Header ***********/
 header {
     display: flex;
-    /* Aligne le logo et la nav en ligne */
+    /* Active flexbox pour aligner logo et navigation côte à côte */
     justify-content: space-between;
-    /* Logo à gauche, nav à droite */
+    /* Pousse le logo à l'extrême gauche et la nav à l'extrême droite */
     align-items: center;
-    /* Centrage vertical */
+    /* Centre verticalement logo et nav sur le même axe */
     height: 79px;
 }
 
@@ -99,9 +101,11 @@ header {
 
 header nav {
     align-self: flex-start;
-    /* La nav reste en haut du header */
+    /* Ignore align-items: center du parent : la nav reste collée en haut du header */
     margin-right: 50px;
+    /* Aligne la nav avec le padding droit du .main-container */
     padding-top: 15px;
+    /* Crée un décalage vertical pour descendre les liens sous le logo */
 }
 
 nav ul {
@@ -109,15 +113,15 @@ nav ul {
     display: flex;
     flex-direction: row;
     gap: 68px;
-    /* Espace entre les liens de navigation */
+    /* 68px d'espace fixe entre chaque lien de navigation */
 }
 
 nav ul li a:hover {
     color: var(--main-color);
     border-top: 2px solid var(--main-color);
-    /* Bordure bleue qui apparaît au survol */
+    /* Ligne bleue de 2px en haut du lien pour indiquer le survol */
     padding-top: 10px;
-    /* Compense la hauteur de la bordure pour éviter un saut de layout */
+    /* Compense les 2px de border-top pour éviter un saut de layout */
 }
 
 /****** Filtres ***********/
@@ -127,7 +131,7 @@ nav ul li a:hover {
 
 .search>p {
     margin-top: 8px;
-    /* Alternatif : margin-bottom sur h1, ou gap: 8px sur .search en flex column */
+    /* 8px d'espace entre le titre h1 et le paragraphe descriptif */
     font-size: 16px;
     font-weight: 400;
 }
@@ -137,23 +141,25 @@ nav ul li a:hover {
     font-weight: 700;
 }
 
+.search-form input:focus {
+    outline: none;
+}
+
 .search-form {
     display: flex;
     align-items: center;
-    border: 1px solid var(--main-bg-color);
-    /* Bordure grise */
     border-radius: 15px;
     width: 377px;
     height: 49px;
     margin-top: 24px;
-    /* Espace au-dessus  de la search-form */
+    /* 24px d'espace au-dessus de la barre de recherche */
     overflow: hidden;
-    /* Cache les débordements pour que les arrondis soient visibles */
+    /* Masque les coins des éléments enfants pour respecter le border-radius du groupe */
 }
 
 .search-form>button {
     background-color: var(--main-color);
-    /* Fond bleu  pour le boutton recherche */
+    /* Fond bleu principal pour le bouton de validation */
     color: white;
     border: none;
     height: 100%;
@@ -165,18 +171,20 @@ nav ul li a:hover {
 
 .search-form>button>i {
     display: none;
-    /* Cache l'icône de la loupe dans le bouton de recherche */
+    /* Icône loupe masquée sur desktop, visible uniquement sur mobile */
 }
 
 .search-form>input {
     flex: 1;
-    /* L'input prend tout l'espace disponible à gauche du bouton */
+    /* Occupe tout l'espace disponible entre l'icône de gauche et le bouton de droite */
     border: none;
-    /* Supprime la bordure de l'input */
+    /* Supprime la bordure par défaut de l'input */
     height: 100%;
     text-align: center;
     font-size: 16px;
     font-weight: 700;
+    border-top: 1px solid var(--main-bg-color);
+    border-bottom: 1px solid var(--main-bg-color);
 }
 
 .search-form>input::placeholder {
@@ -185,13 +193,13 @@ nav ul li a:hover {
 
 .search-form>i {
     color: black;
-    /* Couleur noire */
+    /* Icône de localisation en noir pour contraster avec le fond gris */
     border-top-left-radius: 15px;
     /* Arrondi en haut à gauche pour suivre le border-radius de la search-form */
     border-bottom-left-radius: 15px;
-    /* Arrondi en bas à gauche */
+    /* Arrondi en bas à gauche pour suivre le border-radius de la search-form */
     background-color: var(--main-bg-color);
-    /* Fond gris pour les icônes */
+    /* Fond gris clair pour différencier la zone icône du champ de texte */
     width: 50px;
     height: 105%;
     display: flex;
@@ -203,9 +211,9 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Espace entre les éléments de la section info */
+    /* 10px d'espace entre l'icône et le texte d'information */
     margin-top: 24px;
-    /* Espace au-dessus de la section info */
+    /* 24px d'espace au-dessus de la ligne d'information */
 }
 
 .info i {
@@ -213,30 +221,30 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-    /* Icône dans un cercle */
+    /* 100% transforme l'élément en cercle parfait */
     border: 1px solid var(--main-bg-color);
-    /* Bordure bleue */
+    /* Bordure grise autour de l'icône informationnelle */
     width: 24px;
     height: 24px;
     font-size: 12px;
     vertical-align: middle;
-    /* Aligne l'icône avec le texte */
+    /* Aligne l'icône sur la ligne de base des éléments texte adjacents */
 }
 
 .filters {
     display: flex;
     align-items: center;
     gap: 15px;
-    /* Espace entre les boutons de filtre */
+    /* 15px entre le label "Filtres :" et le groupe de boutons */
     margin-top: 24px;
-    /* Espace au-dessus de la section filtres */
+    /* 24px d'espace au-dessus de la section filtres */
 
 }
 
 .filters-buttons {
     display: flex;
     gap: 15px;
-    /* Espace entre les boutons de filtre */
+    /* 15px d'espace fixe entre chaque bouton de filtre */
 }
 
 .filters-buttons button {
@@ -244,12 +252,12 @@ nav ul li a:hover {
     align-items: center;
     gap: 10px;
     border: 2px solid var(--main-bg-color);
-    /* Bordure grise */
+    /* Contour gris de 2px qui délimite chaque bouton de filtre */
     background-color: white;
-    /* Fond blanc pour les boutons de filtre */
+    /* Fond blanc par défaut pour les boutons de filtre */
     border-radius: 25px;
     padding: 10px 20px;
-    /* Espace interne des boutons de filtre */
+    /* 10px haut/bas, 20px gauche/droite : donne du volume aux boutons */
     font-size: 17px;
     font-weight: 700;
     color: black;
@@ -257,25 +265,25 @@ nav ul li a:hover {
 
 .filters-buttons>button:hover {
     background-color: var(--filter-bg-color);
-    /* Fond bleu clair au survol */
+    /* Fond bleu pâle au survol pour indiquer l'interactivité */
     cursor: pointer;
-    /* Curseur en forme de main au survol */
+    /* Curseur en forme de main pour indiquer que l'élément est cliquable */
 }
 
 /****** Hebergements And Populaires ***********/
 .hebergements-and-populaires {
     display: flex;
-    /* Place hébergements et populaires côte à côte */
+    /* Active flexbox pour aligner hébergements et populaires côte à côte */
     justify-content: space-between;
     margin: 30px 0;
-    /* Espace au-dessus et en dessous de la section */
+    /* 30px de marge en haut et en bas de la section */
 }
 
 .hebergements-and-populaires section {
     background-color: var(--main-bg-color);
     border-radius: 20px;
     padding: 30px;
-    /* Espace interne des deux sections */
+    /* 30px d'espace interne sur les 4 côtés des deux sections */
 }
 
 /****** Hebergements ***********/
@@ -287,9 +295,9 @@ nav ul li a:hover {
 .hebergements-cards {
     display: flex;
     flex-wrap: wrap;
-    /* Les cartes passent à la ligne si elles dépassent */
+    /* Les cartes passent automatiquement à la ligne suivante si l'espace est insuffisant */
     gap: 15px;
-    /* Espace entre les cartes */
+    /* 15px d'espace uniforme entre toutes les cartes */
     margin-top: 33px;
 }
 
@@ -307,9 +315,9 @@ nav ul li a:hover {
     width: 100%;
     height: 124px;
     border-top-left-radius: 20px;
-    /* Arrondi en haut à gauche pour suivre le border-radius de la carte */
+    /* Arrondi en haut à gauche pour s'aligner avec le border-radius de la carte */
     border-top-right-radius: 20px;
-    /* Arrondi en haut à droite */
+    /* Arrondi en haut à droite pour s'aligner avec le border-radius de la carte */
 }
 
 .hebergements-cards .card-content {
@@ -318,6 +326,7 @@ nav ul li a:hover {
     /* Titre, prix et étoiles empilés verticalement */
     justify-content: space-between;
     box-sizing: border-box;
+    /* Les marges gauche/droite sont incluses dans la largeur de la carte */
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -348,13 +357,13 @@ nav ul li a:hover {
 .populaires-title {
     display: flex;
     justify-content: space-between;
-    /* Titre et icône graphique aux extrémités */
+    /* Espace le titre à gauche et l'icône de tendance à droite */
     align-items: center;
 }
 
 .populaires-cards .card {
     display: flex;
-    /* Image à gauche, contenu à droite */
+    /* Active flexbox pour placer l'image à gauche et le contenu à droite */
     margin-top: 33px;
 }
 
@@ -364,17 +373,18 @@ nav ul li a:hover {
     height: 136px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    /* Arrondi à gauche car l'image est sur le côté gauche */
+    /* Arrondis à gauche uniquement car l'image est positionnée sur le côté gauche */
 }
 
 .populaires-cards .card-content {
     width: 67%;
-    /* Le contenu occupe les deux tiers restants */
+    /* Le contenu texte occupe les deux tiers restants */
     padding-left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    /* padding-left compris dans les 67% de largeur : évite que la carte dépasse */
 }
 
 .populaires-cards .card-title {
@@ -394,41 +404,45 @@ nav ul li a:hover {
 .activites {
     width: 100%;
     margin-bottom: 30px;
-    /* Espace avant le footer */
+    /* 30px de marge en bas pour séparer la section du footer */
     padding: 30px;
-    /* Aligne le contenu avec les sections hébergements/populaires */
+    /* 30px de padding pour aligner visuellement avec les sections hébergements et populaires */
 }
 
 .activites .section-title {
     margin-left: 10px;
-    /* Aligne le titre avec les cartes hébergements */
+    /* Aligne le titre avec les cartes d'activités */
     margin-bottom: 33px;
-    /* Espace entre le titre et les cartes */
+    /* 33px d'espace entre le titre et la rangée de cartes */
 }
 
 .activites-cards .card-title {
     margin: 19px 20px;
-    /* Espace autour du titre dans la carte */
+    /* 19px haut/bas, 20px gauche/droite autour du titre */
     white-space: nowrap;
+    /* Empêche le titre de passer à la ligne */
     overflow: hidden;
+    /* Masque le texte qui dépasse du conteneur */
     text-overflow: ellipsis;
+    /* Ajoute "..." quand le titre est tronqué */
 }
 
 .activites-cards {
     display: flex;
     flex-direction: row;
-    /* Les 4 cartes en ligne */
+    /* Les 4 cartes d'activités alignées horizontalement */
     gap: 15px;
     height: 439px;
-    /* Hauteur fixe de la section cartes */
+    /* Hauteur fixe de 439px pour uniformiser l'affichage des 4 cartes */
 }
 
 .activites-cards img {
     width: 100%;
     height: 380px;
-    /* L'image occupe la majorité de la hauteur de la carte */
+    /* 380px sur 439px : l'image occupe l'essentiel de la hauteur de la carte */
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    /* Arrondis en haut de l'image pour s'aligner avec le border-radius de la carte */
 }
 
 .activites-cards a {
@@ -441,7 +455,7 @@ nav ul li a:hover {
 
 .activites-cards .card {
     padding: 0;
-    /* Supprime le padding général pour que l'image remplisse toute la carte */
+    /* Supprime le padding général pour que l'image remplisse entièrement la carte */
     height: 100%;
     /* La carte remplit toute la hauteur du lien parent */
     overflow: hidden;
@@ -452,7 +466,7 @@ footer {
     background-color: var(--main-bg-color);
     padding: 20px 20px;
     display: flex;
-    /* Les 3 sections du footer côte à côte */
+    /* Active flexbox pour aligner les 3 colonnes côte à côte */
     gap: 10px;
 }
 
@@ -468,12 +482,12 @@ footer ul {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    /* Espace entre les liens */
+    /* 15px entre chaque lien de la colonne du footer */
 }
 
 footer section {
     flex: 1;
-    /* Chaque colonne du footer prend la même largeur */
+    /* flex: 1 répartit équitablement la largeur entre les 3 colonnes */
 }
 
 /* Le code ci-dessous correspond à la version responsive uniquement */
@@ -485,10 +499,12 @@ footer section {
     /***** Filtres *****/
     .filters {
         flex-wrap: wrap;
+        /* Permet aux éléments de passer à la ligne si l'espace est insuffisant */
     }
 
     .filters h2 {
         width: 100%;
+        /* Force le titre "Filtres :" sur sa propre ligne */
     }
 
     .filters-buttons button {
@@ -498,7 +514,7 @@ footer section {
     /***** Hebergements And Populaires *****/
     .hebergements-and-populaires {
         flex-direction: column;
-        /* Hébergements et populaires empilés verticalement */
+        /* Hébergements et populaires empilés verticalement sur tablette */
     }
 
     .hebergements {
@@ -514,6 +530,8 @@ footer section {
         display: flex;
         flex-direction: row;
         /* Les cartes populaires repassent en ligne sur tablette */
+        justify-content: space-between;
+        /* Distribue l'espace restant également entre les 3 cartes */
         gap: 20px;
     }
 
@@ -523,13 +541,13 @@ footer section {
     }
 
     .populaires-cards a {
-        flex: 1;
-        /* 3 cartes par ligne sur tablette, gap contrôlé par gap: 20px */
+        width: 30%;
+        /* Chaque carte occupe 30% du conteneur (3 cartes × 30% = 90%) */
     }
 
     .populaires-cards .card-title {
         font-size: 14px;
-        /* Titre réduit pour s'adapter à la taille des cartes */
+        /* Taille réduite pour s'adapter à la largeur plus petite des cartes sur tablette */
     }
 
     .populaires-cards .card-subtitle {
@@ -543,7 +561,7 @@ footer section {
 
     .activites-cards a {
         min-width: auto;
-        /* Permet aux cartes de s'adapter à la largeur disponible sur tablette */
+        /* Annule min-width: 0 du desktop : les cartes s'adaptent librement sur tablette */
     }
 
     .activites-cards img {
@@ -554,11 +572,12 @@ footer section {
         display: flex;
         flex-direction: column;
         overflow: visible;
-        /* Permet au contenu de dépasser de la carte si nécessaire */
+        /* Annule overflow: hidden du desktop pour que le titre puisse s'afficher en dehors */
     }
 
     .activites-cards .card-content {
         flex: 1;
+        /* Occupe tout l'espace vertical restant sous l'image */
         display: flex;
         align-items: center;
     }
@@ -566,11 +585,11 @@ footer section {
     .activites-cards .card-title {
         margin: 0 20px;
         white-space: normal;
-        /* Permet au titre de s'étendre sur plusieurs lignes si nécessaire */
+        /* Autorise le retour à la ligne du titre sur tablette */
         overflow: visible;
-        /* Affiche tout le texte du titre même s'il dépasse de la carte */
+        /* Affiche tout le texte même s'il dépasse la hauteur prévue */
         text-overflow: clip;
-        /* Affiche tout le texte sans ajouter de points de suspension */
+        /* Supprime les "..." : le texte s'affiche en entier */
     }
 }
 
@@ -578,136 +597,146 @@ footer section {
 @media (max-width: 767.98px) {
     .main-container {
         padding: 0 30px;
-        /* Réduit les marges internes sur mobile */
+        /* Réduit les marges internes à 30px sur mobile */
     }
 
     /***** Header *****/
     header {
         display: flex;
         flex-direction: column;
-        /* Logo et nav empilés verticalement */
+        /* Logo et nav empilés verticalement sur mobile */
         align-items: center;
-        /* Centre le contenu horizontalement */
+        /* Centre horizontalement logo et nav */
         margin: 30px 0;
-        /* Espace au-dessus et en dessous du header */
+        /* 30px d'espace en haut et en bas du header */
         padding: 0;
-        /* Supprime les paddings pour que le header soit plus compact sur mobile */
+        /* Supprime le padding pour que le header soit compact sur mobile */
         height: auto;
-        /* Permet au header de s'adapter à la hauteur du contenu sur mobile */
+        /* Permet au header de s'adapter à la hauteur de son contenu */
     }
 
     header nav {
         margin-left: -30px;
         margin-right: -30px;
         width: calc(100% + 60px);
+        /* Compense les -30px de marge gauche et droite pour que la nav prenne toute la largeur */
     }
 
     nav ul {
         flex-direction: row;
         /* Les liens de navigation restent en ligne sur mobile */
         width: 100%;
-        /* La liste de navigation prend toute la largeur sur mobile */
+        /* La liste prend toute la largeur disponible */
         gap: 0;
-        /* Supprime l'espace entre les liens de navigation sur mobile */
+        /* Supprime l'espace entre les liens : chaque li gère sa propre largeur */
     }
 
     nav ul li {
         flex: 1;
-        /* Chaque lien de navigation prend la même largeur sur mobile */
+        /* Chaque lien prend une portion égale de la largeur totale */
         text-align: center;
-        /* Centre le texte des liens de navigation sur mobile */
+        /* Centre le texte dans chaque cellule de navigation */
     }
 
     nav ul li a {
         display: block;
-        /* Affiche les liens de navigation en bloc pour qu'ils prennent toute la largeur sur mobile */
+        /* Rend le lien cliquable sur toute la largeur de son li parent */
         border-bottom: 2px solid var(--main-bg-color);
-        /* Bordure grise par défaut pour les liens de navigation sur mobile */
+        /* Bordure grise en bas par défaut sur mobile */
         padding-bottom: 10px;
-        /* Espace en dessous des liens de navigation pour compenser la bordure */
+        /* Espace en dessous du texte pour compenser la hauteur de la bordure */
     }
 
     nav ul li a:hover,
     nav ul li a.active {
         border-bottom: 2px solid var(--main-color);
-        /* Bordure bleue qui apparaît en bas au survol sur mobile */
+        /* Bordure bleue en bas au survol ou sur la page active */
         margin: 0;
         padding: 0;
     }
 
     nav ul li a:hover {
         border-top: none;
-        /* Supprime la bordure bleue qui apparaît au survol sur desktop */
+        /* Annule la border-top du hover desktop */
         padding-bottom: 10px;
-        /* Compense la hauteur de la bordure pour éviter un saut de layout sur mobile */
+        /* Rétablit le padding-bottom supprimé par le reset padding: 0 ci-dessus */
         padding-top: 0;
-        /* Supprime le padding top ajouté pour le hover sur desktop */
+        /* Annule le padding-top ajouté par le hover desktop */
     }
 
     /***** Filtres *****/
     .search-form {
         width: 100%;
-        /* La search-form prend toute la largeur disponible sur mobile */
+        /* La barre de recherche prend toute la largeur disponible sur mobile */
         overflow: visible;
-        /* Permet à la search-form de s'adapter à la hauteur du contenu sur mobile */
+        /* Permet aux éléments enfants de dépasser sans être masqués */
+        border : 1px solid var(--main-bg-color);
+    }
+
+    .search-form>input {
+        border : none;
     }
 
     .search-form>button>span {
         display: none;
-        /* Cache le texte "Rechercher" dans le bouton de recherche sur mobile */
+        /* Masque le texte "Rechercher" sur mobile : seule l'icône loupe est visible */
     }
 
     .search-form>button>i {
         display: inline-block;
-        /* Affiche l'icône de la loupe dans le bouton de recherche sur mobile */
+        /* Affiche l'icône loupe sur mobile en remplacement du texte */
         color: white;
-        /* Couleur blanche pour l'icône de la loupe sur mobile */
+        /* Couleur blanche pour contraster avec le fond bleu du bouton */
     }
 
     .search-form>button {
         border-radius: 15px;
-        /* Arrondi du bouton de recherche sur mobile */
+        /* Arrondi complet du bouton réduit sur mobile */
         width: 49px;
-        /* Réduit la largeur du bouton de recherche sur mobile pour n'afficher que l'icône de la loupe */
+        /* Largeur réduite pour n'afficher que l'icône loupe */
         ;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        /* Ombre portée légère */
+        /* 4px vers le bas, 4px de flou, noir à 25% d'opacité */
     }
 
     .filters-buttons {
         flex-wrap: wrap;
+        /* Permet aux boutons de passer à la ligne sur mobile */
     }
 
     .filters-buttons button {
         width: calc(50% - 7.5px);
+        /* 2 boutons par ligne (1 gap de 15px / 2 = 7.5px par bouton) */
         font-size: 14px;
-        /* Réduit la taille de la police pour les boutons de filtre sur mobile */
+        /* Taille réduite pour s'adapter aux boutons plus petits sur mobile */
     }
 
     .info i {
         flex-shrink: 0;
-        /* Empêche les icônes de rétrécir sur mobile */
+        /* Empêche l'icône de rétrécir et de se déformer sur mobile */
     }
 
     /***** Hebergements And Populaires *****/
     .hebergements-and-populaires section {
         border-radius: 0;
-        /* Supprime les arrondis pour que les sections hébergements et populaires prennent toute la largeur sur mobile */
+        /* Supprime les arrondis pour que les sections prennent toute la largeur de l'écran */
         ;
         margin-left: -30px;
         margin-right: -30px;
+        /* Annule les 30px de padding du .main-container pour aller bord à bord */
         padding: 30px 20px;
     }
 
     .hebergements-and-populaires {
         flex-direction: column-reverse;
-        /* Populaires au-dessus des hébergements sur mobile */
+        /* Populaires affiché au-dessus des hébergements sur mobile */
         padding: 0;
         margin-top: 0;
     }
 
     .populaires {
         width: calc(100% + 60px);
+        /* 100% + 60px pour compenser les 30px de padding du .main-container de chaque côté */
         margin-top: 35px;
     }
 
@@ -723,11 +752,12 @@ footer section {
 
     .hebergements {
         width: calc(100% + 60px);
+        /* 100% + 60px pour compenser les 30px de padding du .main-container de chaque côté */
     }
 
     .hebergements-and-populaires .hebergements {
         background-color: white;
-        /* Fond blanc pour la section hébergements sur mobile */
+        /* Fond blanc sur mobile : la section hébergements n'a pas de fond gris */
     }
 
     .hebergements-cards {
@@ -743,33 +773,48 @@ footer section {
 
     .hebergements-cards .img {
         height: 124px;
-        /* Réduit la hauteur des images dans les cartes hébergements sur mobile */
+    }
+
+    .hebergements-cards .card-title {
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .hebergements-cards .card-subtitle {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .hebergements-cards .card-rating {
+        margin-top: 5px;
+        margin-bottom: 0;
     }
 
     /***** Activites *****/
     .activites {
         padding-left: 0;
         padding-right: 0;
-        /* Supprime les paddings pour que la section activités prenne toute la largeur sur mobile */
+        /* Supprime le padding horizontal pour que la section prenne toute la largeur */
     }
 
     .activites-cards {
         flex-direction: column;
+        /* Les cartes activités empilées verticalement sur mobile */
         height: auto;
-        /* Permet à la section activités de s'adapter à la hauteur du contenu sur mobile */
+        /* Supprime la hauteur fixe : chaque carte prend la hauteur de son contenu */
         padding: 0;
     }
 
     .activites-cards .card-content {
         display: block;
-        /* Affiche le contenu de la carte en bloc pour qu'il prenne toute la largeur sur mobile */
+        /* Revient à un affichage bloc standard pour le contenu */
         padding: 20px 20px 20px 0px;
-        /* Ajoute du padding autour du contenu de la carte sur mobile */
+        /* 20px de padding autour du titre, sauf à gauche */
     }
 
     .activites-cards img {
         height: 141px;
-        /* Réduit la hauteur des images dans les cartes activités sur mobile */
+        /* Hauteur réduite sur mobile pour ne pas trop occuper l'écran */
     }
 
     .activites-cards .card-title {
@@ -779,9 +824,11 @@ footer section {
     /***** Footer *****/
     footer {
         flex-direction: column;
+        /* Les 3 colonnes du footer empilées verticalement sur mobile */
         gap: 50px;
-        /* Espace plus grand entre les sections du footer sur mobile */
+        /* 50px entre chaque colonne pour aérer le footer */
         margin-left: -30px;
         margin-right: -30px;
+        /* Annule les 30px de padding du .main-container pour aller bord à bord */
     }
 }
