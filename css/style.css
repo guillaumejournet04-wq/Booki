@@ -97,6 +97,7 @@ header {
 #logo {
     width: 61.09px;
     height: 19px;
+    margin: 30px 0;
 }
 
 header nav {
@@ -104,8 +105,6 @@ header nav {
     /* Ignore align-items: center du parent : la nav reste collée en haut du header */
     margin-right: 50px;
     /* Aligne la nav avec le padding droit du .main-container */
-    padding-top: 15px;
-    /* Crée un décalage vertical pour descendre les liens sous le logo */
 }
 
 nav ul {
@@ -116,12 +115,16 @@ nav ul {
     /* 68px d'espace fixe entre chaque lien de navigation */
 }
 
+nav ul li a {
+    display: inline-block;
+    padding-top: 15px;
+}
+
 nav ul li a:hover {
     color: var(--main-color);
     border-top: 2px solid var(--main-color);
-    /* Ligne bleue de 2px en haut du lien pour indiquer le survol */
-    padding-top: 10px;
-    /* Compense les 2px de border-top pour éviter un saut de layout */
+    padding-top: 13px;
+    /* 15px - 2px de border-top pour éviter un saut de layout */
 }
 
 /****** Filtres ***********/
@@ -597,7 +600,9 @@ footer section {
 @media (max-width: 767.98px) {
     .main-container {
         padding: 0 30px;
-        /* Réduit les marges internes à 30px sur mobile */
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
     }
 
     /***** Header *****/
@@ -607,8 +612,6 @@ footer section {
         /* Logo et nav empilés verticalement sur mobile */
         align-items: center;
         /* Centre horizontalement logo et nav */
-        margin: 30px 0;
-        /* 30px d'espace en haut et en bas du header */
         padding: 0;
         /* Supprime le padding pour que le header soit compact sur mobile */
         height: auto;
@@ -643,6 +646,7 @@ footer section {
         /* Rend le lien cliquable sur toute la largeur de son li parent */
         border-bottom: 2px solid var(--main-bg-color);
         /* Bordure grise en bas par défaut sur mobile */
+        padding-top: 0;
         padding-bottom: 10px;
         /* Espace en dessous du texte pour compenser la hauteur de la bordure */
     }
